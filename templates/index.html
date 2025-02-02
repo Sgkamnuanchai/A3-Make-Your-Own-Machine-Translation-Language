@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A3-st124738-Translation-Model</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #021436;
+            color: #f75ded;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            margin-top: 50px;
+            padding: 20px;
+        }
+        .generate-box {
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        .input-box, .output-box {
+            width: 45%;
+            background-color: #ffffff;
+            color: #000000;
+            padding: 20px;
+            border-radius: 10px;
+            word-wrap: break-word;
+        }
+        .input-box textarea, .output-box textarea {
+            width: 90%;
+            height: 200px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            font-size: 1em;
+            resize: none;
+        }
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 20px;
+            background-color: #3498db;
+            color: white;
+            cursor: pointer;
+            font-size: 1em;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+        .results-header {
+            background-color: #e74c3c;
+            color: #ffffff;
+            padding: 10px;
+            font-size: 1.2em;
+            font-weight: bold;
+            border-radius: 10px 10px 0 0;
+            margin-top: 20px;
+        }
+        .error {
+            color: red;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>A3-Translation-Model</h1>
+        <form id="generateForm" class="generate-box">
+            <div class="input-box">
+                <h3>Source Text (English) :</h3>
+                <textarea id="promptInput" placeholder="Enter text to translate" required></textarea>
+            </div>
+            <div class="output-box">
+                <h3>Translated Text (Thai) :</h3>
+                <textarea id="translatedText" placeholder="Translation will appear here" readonly></textarea>
+            </div>
+        </form>
+        <button type="submit" id="generateButton">Generate Translation</button>
+        <div id="error-message" class="error"></div>
+    </div>
+
+    <script>
+        const form = document.getElementById("generateForm");
+        const generateButton = document.getElementById("generateButton");
+        
+        generateButton.onclick = async (e) => {
+            e.preventDefault();
+            const inputPrompt = document.getElementById("promptInput").value;
+
+            try {
+                const response = await fetch("/translate", {
+                    method: "POST",
+                    headers: {"Content-Type": "application/json"},
+                    body: JSON.stringify({sentence: inputPrompt}),
+                });
+
+                const data = await response.json();
+
+                if (data.translation) {
+                    document.getElementById("translatedText").value = data.translation;
+                } else {
+                    document.getElementById("error-message").innerText = "Error: Unable to generate translation.";
+                }
+            } catch (error) {
+                document.getElementById("error-message").innerText = "Error: Unable to generate translation.";
+            }
+        };
+    </script>
+</body>
+</html>
