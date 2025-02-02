@@ -24,19 +24,22 @@ Translating between Thai language and English
 | Additive Attention             | 3.151     | 23.352       | 5.501      | 244.997            |
 
 ## Plot Loss Curve and heat map of General Attention
+- General Attention : mechanism is working partially, unk appear once,and it lacks precise focus on specific words.
 ![App Screenshot](assets/plot-gen.jpg)
 ![App Screenshot](assets/heat-gen.jpg)
-- General Attention : mechanism is working partially, unk appear once,and it lacks precise focus on specific words.
+
 
 ## Plot Loss Curve and heat map of Multiplicative Attention
+- Multiplicative Attention: it's look sharper than General Attention , unk tokens appear once , and provides better word alignment than general attentions.
 ![App Screenshot](assets/plot-multi.jpg)
 ![App Screenshot](assets/heat-multi.jpg)
-- Multiplicative Attention: it's look sharper than General Attention , unk tokens appear once , and provides better word alignment than general attentions.
+
 
 ## Plot Loss Curve and heat map of Additive Attention
+- Additive Attention fails to focus sharply on specific words and unk tokens appear frequently, showing the model's difficulty in mapping words properly.
 ![App Screenshot](assets/plot-add.jpg)
 ![App Screenshot](assets/heat-add.jpg)
-- Additive Attention fails to focus sharply on specific words and unk tokens appear frequently, showing the model's difficulty in mapping words properly.
+
 
 ## 4.Evaluation
 | Attentions | BLEU Score (Accuracy) | compu-tational efficiency | Perplexity (PPL) |
