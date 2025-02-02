@@ -24,20 +24,26 @@ Translating between Thai language and English
 | Additive Attention             | 3.151     | 23.352       | 5.501      | 244.997            |
 
 ## Plot Loss Curve and heat map of General Attention
-- General Attention : mechanism is working partially, unk appear once,and it lacks precise focus on specific words.
+- General Attention loss curve : The training loss decreases steadily, and the validation loss follows a similar trend but remains higher.This indicates the model is learning but may struggle with generalization.
 ![App Screenshot](assets/plot-gen.jpg)
+
+- General Attention Heatmap : mechanism is working partially, unk appear once,and it lacks precise focus on specific words.
 ![App Screenshot](assets/heat-gen.jpg)
 
 
 ## Plot Loss Curve and heat map of Multiplicative Attention
-- Multiplicative Attention: it's look sharper than General Attention , unk tokens appear once , and provides better word alignment than general attentions.
+- Multiplicative Attention Loss curve: The training loss drops quickly, but the validation loss starts increasing slightly after a few epochs.This suggests potential overfitting, meaning the model performs well on training data but struggles with unseen data.
 ![App Screenshot](assets/plot-multi.jpg)
+
+- Multiplicative Attention Heatmap: it's look sharper than General Attention , unk tokens appear once , and provides better word alignment than general attentions.
 ![App Screenshot](assets/heat-multi.jpg)
 
 
 ## Plot Loss Curve and heat map of Additive Attention
-- Additive Attention fails to focus sharply on specific words and unk tokens appear frequently, showing the model's difficulty in mapping words properly.
+- Additive Attention Loss curve :The training loss decreases smoothly, but the validation loss plateaus and fluctuates.This suggests the model is slower to learn and may not be the best choice for efficiency.
 ![App Screenshot](assets/plot-add.jpg)
+
+- Additive Attention Heatmap :fails to focus sharply on specific words and unk tokens appear frequently, showing the model's difficulty in mapping words properly.
 ![App Screenshot](assets/heat-add.jpg)
 
 
