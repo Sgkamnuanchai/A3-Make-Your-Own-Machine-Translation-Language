@@ -28,12 +28,12 @@ Translating between Thai language and English
 ![App Screenshot](assets/heat-gen.jpg)
 - General Attention : mechanism is working partially, unk appear once,and it lacks precise focus on specific words.
 
-## Plot Loss Curve of Multiplicative Attention
+## Plot Loss Curve and heat map of Multiplicative Attention
 ![App Screenshot](assets/plot-multi.jpg)
 ![App Screenshot](assets/heat-multi.jpg)
 - Multiplicative Attention: it's look sharper than General Attention , unk tokens appear once , and provides better word alignment than general attentions.
 
-## Plot Loss Curve of Additive Attention
+## Plot Loss Curve and heat map of Additive Attention
 ![App Screenshot](assets/plot-add.jpg)
 ![App Screenshot](assets/heat-add.jpg)
 - Additive Attention fails to focus sharply on specific words and unk tokens appear frequently, showing the model's difficulty in mapping words properly.
@@ -53,7 +53,7 @@ The Multiplicative Attention is the best choice because it has the lowest Perple
 python app.py
 
 ## Video demo in web application
-![Watch the video](assets/screen-a3-record.mp4)
+![Demo](assets/demo-a3.gif)
 
 ## Output sample in web application
 ![App Screenshot](assets/a3-result.jpg)
